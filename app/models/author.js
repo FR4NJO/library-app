@@ -4,10 +4,11 @@ import Faker from 'faker';
 
 export default DS.Model.extend({
 
-  name: DS.attr('string'),
-  books: DS.hasMany('book', {inverse: 'author', async: true}),
+    name: DS.attr('string'),
+    books: DS.hasMany('book', {inverse: 'author'}),
 
-  isNotValid: Ember.computed.empty('name'),
+
+    isNotValid: Ember.computed.empty('name'),
 
   randomize() {
     this.set('name', Faker.name.findName());
